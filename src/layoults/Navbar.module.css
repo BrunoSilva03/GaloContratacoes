@@ -1,0 +1,41 @@
+/* A parada das fontes tá aí pra resolver depois */
+
+.navbar {
+    background-color: black;
+    height: 15vh;
+    color: white;
+    display: grid;
+    grid-template-areas: "galo .  . links";
+    
+}
+
+.logo {
+    position: fixed;
+    grid-area: galo
+}
+
+.menu {
+    grid-area: links;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.menu button {
+    padding:  47px;
+    border: none;
+    background-color: black;
+    color: white;
+    transition: .9s;
+}
+
+
+.menu button:hover {
+    background-color: rgb(75, 74, 74);
+}

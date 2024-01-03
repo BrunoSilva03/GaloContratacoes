@@ -1,10 +1,12 @@
-
 import './App.css';
+
+import RoutesApp from './routes';
 
 function App() {
   return (
     <div className="App">
-   Olá mundo! Este é o aplicativo do Galo!
+   <RoutesApp />
+
     </div>
   );
 }
