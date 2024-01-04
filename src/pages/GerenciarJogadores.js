@@ -3,10 +3,29 @@ import { useState } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import styles from './GerenciarJogadores.module.css'
-import Footer from '../layoults/Footer'
-import galo from '../images/galo-20por20.png';
+import photoCamera from '../images/camera.png';
 
 function GerenciarJogadores() {
+    let photo = document.querySelector('.imgPhoto');
+    let file = document.querySelector('.photofile');
+    console.log('photo' + photo);
+        console.log('file' + file);
+
+    if(photo && file) {
+
+        photo.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('photo' + photo);
+            console.log('file' + file);
+            file.click();
+        });
+    }
+
+    function clicar() {
+        file.click();
+    }
+
+
     const [imgURL, setImgURL] = useState("");
     //Barra de carregamento
     const [progress, setProgress] = useState(0);
@@ -57,9 +76,18 @@ function GerenciarJogadores() {
            <h1>Cadastrar Jogador</h1>
            <br />
 
-
-            <input type="file"/>
+            <label htmlFor="photo">Insira a foto do jogador</label><br/><br/>
+            {/* Aqui vai aparecer no lugar do input padrão do HTML*/}
+            <div className={styles.max_width}>
+                <div className={styles.imageContainer} onClick={((e) => clicar)}>
+                    <img className={styles.imgPhoto} onClick={((e) => clicar)} src={photoCamera} alt="Insira a foto do jogador" id="imgPhoto"/>
+                </div>
+            </div>
+            <input className={styles.photofile} type="file" id="photofile" name="photofile"
+            accept="image/*"/>
             <br/><br/>
+
+
            <label htmlFor='name'>Nome:</label>
            <input type='text'
            id='name' name='name'
