@@ -61,7 +61,7 @@ input[type="file"] {
     transition: 1.5s;
 }
 
-.imageContainer img {
+.imgPhoto {
     width: 70%;
     cursor: pointer;
     transition: 1.5s;

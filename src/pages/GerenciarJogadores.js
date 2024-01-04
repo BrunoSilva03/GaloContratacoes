@@ -1,29 +1,36 @@
 import { db, storage } from '../FirebaseConnection';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import styles from './GerenciarJogadores.module.css'
 import photoCamera from '../images/camera.png';
 
 function GerenciarJogadores() {
-    let photo = document.querySelector('.imgPhoto');
-    let file = document.querySelector('.photofile');
-    console.log('photo' + photo);
-        console.log('file' + file);
+  
+    // let photo = document.getElementByClassName('.imgPhoto');
+    // let file = document.getElementByClassName('.photofile');
 
-    if(photo && file) {
+    
+
+
+    useEffect(() => {
+        let photo = document.getElementById('imgPhoto');
+        let file = document.getElementById('photofile');
+
+        console.log('photo' + photo);
+    console.log('file' + file);
 
         photo.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('photo' + photo);
-            console.log('file' + file);
             file.click();
         });
-    }
+    }, [])
+   
 
-    function clicar() {
-        file.click();
-    }
+    
+    
+
+   
 
 
     const [imgURL, setImgURL] = useState("");
@@ -79,8 +86,8 @@ function GerenciarJogadores() {
             <label htmlFor="photo">Insira a foto do jogador</label><br/><br/>
             {/* Aqui vai aparecer no lugar do input padrão do HTML*/}
             <div className={styles.max_width}>
-                <div className={styles.imageContainer} onClick={((e) => clicar)}>
-                    <img className={styles.imgPhoto} onClick={((e) => clicar)} src={photoCamera} alt="Insira a foto do jogador" id="imgPhoto"/>
+                <div className={styles.imageContainer}>
+                    <img className={styles.imgPhoto}  src={photoCamera} alt="Insira a foto do jogador" id="imgPhoto"/>
                 </div>
             </div>
             <input className={styles.photofile} type="file" id="photofile" name="photofile"
