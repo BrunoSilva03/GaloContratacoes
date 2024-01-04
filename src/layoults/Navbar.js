@@ -1,18 +1,32 @@
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
-import logogalo from '../images/altura 150.png'
+import logogalo from '../images/altura 150.png';
 
 function Navbar() {
-    return(
+    return (
         <div className={styles.navbar}>
-        <img  className={styles.logo} src={logogalo}/>
+            <img className={styles.logo} src={logogalo} />
 
-        <nav className={styles.menu}>
+            <nav className={styles.menu}>
             <ul>
-                <li><button>Home</button></li>
-                <li><button>Jogadores</button></li>
-                <li><button>Gerenciar Jogadores</button></li>
-            </ul>
-        </nav>
+                    <li>
+                        <Link to="/">
+                            <p>Home</p>
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link to="/jogadores">
+                            <p>Jogadores</p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/gerenciar-jogadores">
+                            <p>Gerenciar Jogadores</p>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
         </div>
     )
 }

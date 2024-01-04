@@ -9,13 +9,15 @@ function RoutesApp() {
     return(
         <>
         <Navbar />
-        <Router>
+        
             <Routes>
                 <Route exact path="/" element={<Home/>}/>
 
                 <Route path="/jogadores" element={<Jogadores/>}/>
+
+                <Route path="/gerenciar-jogadores" element={<GerenciarJogadores/>}/>
             </Routes>
-        </Router>
+       
         </>
     )
 }

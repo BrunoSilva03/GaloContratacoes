@@ -4,4 +4,4 @@ function Jogadores() {
     )
 }
 
-export default Jogadores
+export default Jogadores;

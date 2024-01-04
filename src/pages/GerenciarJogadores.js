@@ -1,7 +1,16 @@
+import { db } from '../FirebaseConnection'
+
+import styles from './GerenciarJogadores.module.css'
+
 function GerenciarJogadores() {
     return(
-        <h1>Gerenciar Jogadores</h1>
+        <div className={styles.main}>
+           
+            <form className={styles.formulario}>
+            <p>form</p>
+            </form>
+        </div>
     )
 }
 
-export default GerenciarJogadores
+export default GerenciarJogadores;

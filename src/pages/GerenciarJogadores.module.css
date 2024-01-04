@@ -1,0 +1,14 @@
+.main {
+    background-color: yellow;
+    height: 85vh;
+    margin-top: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    background-color: red;
+    min-width: 600px;
+    height: 80vh;
+}
