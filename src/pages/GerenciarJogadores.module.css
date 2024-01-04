@@ -1,6 +1,6 @@
 .main {
     
-    height: 85vh;
+    height: 80vh;
     margin-top: 33px;
     display: flex;
     justify-content: center;
@@ -34,9 +34,11 @@
 }
 
 .areaButton {
+    
+    width: 415px;
     text-align: right;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     gap: 1em;
 }
 
@@ -60,4 +62,26 @@
 
 .btnCadastrar:hover {
     background: gray;
+}
+
+progress {
+    display: block;
+    -webkit-appearence: none;
+}
+
+progress::-webkit-progress-bar {
+    background: black;
+    border-radius: 50px;
+    padding: 2px;
+}
+
+progress::-moz-progress-bar {
+    background: white;
+    border-radius: 50px;
+    padding: 2px;
+}
+
+progress::-webkit-progress-value {
+    border-radius: 50px;
+    background: orange;
 }

@@ -1,0 +1,10 @@
+footer {
+    font-family: 'Industry Inc Outline';
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+    padding: 25px;
+    background-color: black;
+    color: white;
+}
