@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/galocontratacoes/static/css/main.3863d400.css",
+    "main.js": "/galocontratacoes/static/js/main.43692c9c.js",
+    "static/media/IndustryInc-Base (1).ttf": "/galocontratacoes/static/media/IndustryInc-Base (1).2b3b74b1687dd587fecc.ttf",
+    "index.html": "/galocontratacoes/index.html",
+    "main.3863d400.css.map": "/galocontratacoes/static/css/main.3863d400.css.map",
+    "main.43692c9c.js.map": "/galocontratacoes/static/js/main.43692c9c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3863d400.css",
+    "static/js/main.43692c9c.js"
+  ]
+}
