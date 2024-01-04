@@ -1,5 +1,8 @@
 /* A parada das fontes tá aí pra resolver depois */
-
+@font-face {
+    font-family: 'Industry Inc Outline';
+    src: url('../../fonts/IndustryInc-Base\ \(1\).ttf') format('truetype');
+}
 .navbar {
     background-color: black;
     height: 15vh;
@@ -27,12 +30,12 @@
     align-items: center;
     justify-content: center;
     height: 15vh;
+    font-family: 'Industry Inc Outline';
     
 }
 
 .menu li {
     text-decoration: none;
-    background: red;
     height: 15vh;
     
 }

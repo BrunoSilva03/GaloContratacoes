@@ -1,5 +1,5 @@
 .main {
-    background-color: yellow;
+    
     height: 85vh;
     margin-top: 33px;
     display: flex;
@@ -8,7 +8,56 @@
 }
 
 .formulario {
-    background-color: red;
-    min-width: 600px;
+  
+    width: 600px;
     height: 80vh;
+    font-family: 'Industry Inc Outline';
+}
+
+.formulario input, select {
+    margin-left: 1em;
+    font-family: 'Industry Inc Outline';
+    
+}
+
+.formulario label {
+    font-size: 1.5em;
+}
+
+.formulario select {
+    font-size: 1em;
+}
+
+.formulario input {
+    font-size: 1.3em;
+    width: 300px;
+}
+
+.areaButton {
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    gap: 1em;
+}
+
+.formulario button {
+    margin-top: 2em;
+    padding: 25px;
+    border: none;
+    font-family: 'Industry Inc Outline';
+    transition: 1.5s;
+}
+
+.btnCancelar:hover {
+    background: gray;
+    color: red;
+}
+
+.btnCadastrar {
+    background-color: black;
+    color: yellow;
+}
+
+.btnCadastrar:hover {
+    background: gray;
 }
