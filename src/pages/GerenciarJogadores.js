@@ -1,4 +1,5 @@
 import { db, storage } from '../FirebaseConnection';
+import { doc, setDoc, getDoc, getDocs, collection, onSnapshot, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
@@ -6,26 +7,34 @@ import styles from './GerenciarJogadores.module.css'
 import photoCamera from '../images/camera.png';
 
 function GerenciarJogadores() {
-  
-    // let photo = document.getElementByClassName('.imgPhoto');
-    // let file = document.getElementByClassName('.photofile');
-
-    
-
 
     useEffect(() => {
-        let photo = document.getElementById('imgPhoto');
-        let file = document.getElementById('photofile');
+        var input = document.getElementById('photofile');
+        var fileName = document.getElementById('file-name');
+        
 
-        console.log('photo' + photo);
-    console.log('file' + file);
-
-        photo.addEventListener('click', (e) => {
-            e.preventDefault();
-            file.click();
+        input.addEventListener('change', function() {
+            const endereco = this.value;
+            const enderecoRefinado = endereco.replace("fakepath", '');
+            fileName.innerHTML = enderecoRefinado;
         });
+
     }, [])
-   
+    // useEffect(() => {
+    //     let photo = document.getElementById('imgPhoto');
+    //     let file = document.getElementById('photofile');
+
+    //     console.log('photo' + photo);
+    // console.log('file' + file);
+
+    //     photo.addEventListener('click', () => {
+    //         file.click();
+    //     });
+    // }, [])
+    const [nome, setNome] = useState('');
+    const [idade, setIdade] = useState('');
+    const [nacionalidade, setNacionalidade] = useState('');
+    const [posicao, setPosicao] = useState('');
 
     
     
@@ -36,6 +45,10 @@ function GerenciarJogadores() {
     const [imgURL, setImgURL] = useState("");
     //Barra de carregamento
     const [progress, setProgress] = useState(0);
+
+    async function handleAdd() {
+        handleUpload();
+    }
 
     const  handleUpload = (event) => {
         event.preventDefault();
@@ -79,21 +92,31 @@ function GerenciarJogadores() {
 
     return(
         <div className={styles.main}>
-            <form  onSubmit={handleUpload} className={styles.formulario}>
+            <form  onSubmit={handleAdd} className={styles.formulario}>
            <h1>Cadastrar Jogador</h1>
            <br />
 
-            <label htmlFor="photo">Insira a foto do jogador</label><br/><br/>
             {/* Aqui vai aparecer no lugar do input padrão do HTML*/}
-            <div className={styles.max_width}>
+            {/* <div className={styles.max_width}>
                 <div className={styles.imageContainer}>
-                    <img className={styles.imgPhoto}  src={photoCamera} alt="Insira a foto do jogador" id="imgPhoto"/>
+                <img className={styles.imgPhoto}  src={photoCamera} alt="Insira a foto do jogador" id="imgPhoto"/>
                 </div>
+            </div> */}
+            <div className="inputContainer">
+                <label htmlFor="photofile">Insira a foto do jogador</label><br/><br/>
+
+                
+                <label htmlFor="photofile" className={styles.labelphoto}><img src={photoCamera} className={styles.imgPhoto}/></label>
+
+                    <input className={styles.photofile} type="file" id="photofile" name="photofile"
+                    accept="image/*"/>
+
+                    <span id="file-name"></span>
+            
             </div>
-            <input className={styles.photofile} type="file" id="photofile" name="photofile"
-            accept="image/*"/>
             <br/><br/>
 
+            
 
            <label htmlFor='name'>Nome:</label>
            <input type='text'
