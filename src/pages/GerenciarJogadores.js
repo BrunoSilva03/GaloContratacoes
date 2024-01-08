@@ -2,6 +2,7 @@ import { db, storage } from '../FirebaseConnection';
 import { doc, setDoc, getDoc, getDocs, collection, onSnapshot, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { toast } from 'react-toastify';
 
 import styles from './GerenciarJogadores.module.css'
 import photoCamera from '../images/camera.png';
@@ -32,7 +33,6 @@ function GerenciarJogadores() {
     //     });
     // }, [])
     const [jogadores, setJogadores] = useState([]);
-    const [nome, setNome] = useState('');
     const [idade, setIdade] = useState('');
     const [nacionalidade, setNacionalidade] = useState('');
     const [posicao, setPosicao] = useState('');
@@ -51,18 +51,20 @@ function GerenciarJogadores() {
         
 
         await setDoc(doc(db, "jogadores", jogadores), {
-            nome: nome,
             idade: idade,
             nacionalidade: nacionalidade,
             posicao: posicao,
         })
         .then(() => {
+            toast.success("Dados registrados com sucesso no banco!");
             console.log("DADOS REGISTRADOS NO BANCO COM SUCESSO!");
-            setNome('');
+            setJogadores('');
             setIdade('');
             setNacionalidade('');
             setPosicao('');
-            setJogadores([...jogadores]);
+            console.log('limpou tudo.')
+            console.log('jogadores: ' + jogadores)
+            console.log('idade: ' + idade);
         })
 
        
@@ -142,7 +144,7 @@ function GerenciarJogadores() {
            id='name' name='name'
            autoComplete='off'
            placeholder='Insira o nome do jogador'
-           onChange={ (e) => setNome(e.target.value)}
+           onChange={ (e) => setJogadores(e.target.value)}
            /> <br/><br/>
 
            <label htmlFor="idade">Idade:</label>
