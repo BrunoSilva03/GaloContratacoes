@@ -1,0 +1,12 @@
+.containerMain {
+    height: 80vh;
+    display: grid;
+    margin: 50px;
+    grid-template-columns: 200px 200px 200px;
+    background-color: yellow;
+}
+
+.containerMain ul {
+    list-style: none;
+}
+

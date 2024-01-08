@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { doc, setDoc, getDoc, getDocs, collection, onSnapshot, updateDoc,  deleteDoc } from 'firebase/firestore';
 import { db } from '../FirebaseConnection';
+import JogadorCard from '../layoults/JogadorCard';
+
 import styles from './Jogadores.module.css';
 
 function Jogadores() {
@@ -54,15 +56,16 @@ function Jogadores() {
         })
     }
     return(
-        <div className="containerMain">
+        <div className={styles.containerMain}>
+            <h1>Olá</h1>
             <ul>
                 {soccers.map((jogador) => {
                     return(
                         <li key={jogador.id}>
-                            <span><strong>Nome: {jogador.nome}</strong></span>
-                            <span>Idade: {jogador.idade}</span>
-                            <span>Nacionalidade: {jogador.nacionalidade}</span>
-                            <span>Posição: {jogador.posicao}</span>
+                            <JogadorCard nome={jogador.nome}
+                            idade={jogador.idade}
+                            nacionalidade={jogador.nacionalidade}
+                            posicao={jogador.posicao}/>
                         </li>
                     )
                 })}
