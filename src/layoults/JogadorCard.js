@@ -14,6 +14,8 @@ import Africa from '../images/africa.png';
 function JogadorCard(props) {
     return(
         <div className={styles.card}>
+            {console.log('foto: ' + props.foto)}
+            <p>Foto: {props.foto} </p>
             <h3><strong>Nome: {props.nome}</strong></h3>
             <li>Idade: {props.idade}</li>
             <li className={styles.nacionality}>Nacionalidade: {props.nacionalidade === 'Brasil' && <img src={Brasil} />}

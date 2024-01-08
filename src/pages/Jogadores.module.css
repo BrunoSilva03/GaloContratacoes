@@ -10,3 +10,10 @@
     list-style: none;
 }
 
+.msg {
+    font-family: 'Industry Inc Outline';
+    text-align: center;
+    width: 90vw;
+    height: 10vh;
+    font-size: 2em;
+}

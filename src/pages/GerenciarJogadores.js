@@ -56,6 +56,7 @@ function GerenciarJogadores() {
             idade: idade,
             nacionalidade: nacionalidade,
             posicao: posicao,
+            foto: imgURL.toString(),
         })
         .then(() => {
             toast.success("Dados registrados com sucesso no banco!");
@@ -130,7 +131,7 @@ function GerenciarJogadores() {
                 <label htmlFor="photofile">Insira a foto do jogador</label><br/><br/>
 
                 
-                <label htmlFor="photofile" className={styles.labelphoto}><img src={photoCamera} className={styles.imgPhoto}/></label>
+                <label htmlFor="photofile" className={styles.labelphoto}><img src={photoCamera} value={imgURL} className={styles.imgPhoto}/></label>
 
                     <input className={styles.photofile} type="file" id="photofile" name="photofile"
                     accept="image/*"/>

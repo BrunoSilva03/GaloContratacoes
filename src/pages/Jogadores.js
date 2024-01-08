@@ -57,12 +57,13 @@ function Jogadores() {
     }
     return(
         <div className={styles.containerMain}>
-            <h1>Olá</h1>
+            {soccers.length > 0 ? 
             <ul>
                 {soccers.map((jogador) => {
                     return(
                         <li key={jogador.id}>
                             <JogadorCard nome={jogador.nome}
+                            foto={jogador.foto}
                             idade={jogador.idade}
                             nacionalidade={jogador.nacionalidade}
                             posicao={jogador.posicao}/>
@@ -70,6 +71,8 @@ function Jogadores() {
                     )
                 })}
             </ul>
+            :
+            <p className={styles.msg}>Não há jogadores cadastrados no momento.</p>}
 
         </div>
     )
