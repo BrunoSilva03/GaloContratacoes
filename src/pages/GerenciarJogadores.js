@@ -33,6 +33,7 @@ function GerenciarJogadores() {
     //     });
     // }, [])
     const [jogadores, setJogadores] = useState([]);
+    const [nome, setNome] = useState('');
     const [idade, setIdade] = useState('');
     const [nacionalidade, setNacionalidade] = useState('');
     const [posicao, setPosicao] = useState('');
@@ -51,6 +52,7 @@ function GerenciarJogadores() {
         
 
         await setDoc(doc(db, "jogadores", jogadores), {
+            nome: jogadores,
             idade: idade,
             nacionalidade: nacionalidade,
             posicao: posicao,
@@ -59,6 +61,7 @@ function GerenciarJogadores() {
             toast.success("Dados registrados com sucesso no banco!");
             console.log("DADOS REGISTRADOS NO BANCO COM SUCESSO!");
             setJogadores('');
+            setNome('');
             setIdade('');
             setNacionalidade('');
             setPosicao('');
@@ -144,6 +147,7 @@ function GerenciarJogadores() {
            id='name' name='name'
            autoComplete='off'
            placeholder='Insira o nome do jogador'
+           value={jogadores}
            onChange={ (e) => setJogadores(e.target.value)}
            /> <br/><br/>
 
@@ -152,11 +156,12 @@ function GerenciarJogadores() {
            id="idade" name="idade"
            autoComplete="off"
            placeholder="Insira a idade do jogador"
+           value={idade}
            onChange={ (e) => setIdade(e.target.value)}
            /> <br/> <br/>
 
            <label htmlFor="nacionality">Nacionalidade:</label>
-           <select id="nacionality" name="nacionality" onChange={ (e) => setNacionalidade(e.target.value)}>
+           <select id="nacionality" name="nacionality" value={nacionalidade} onChange={ (e) => setNacionalidade(e.target.value)}>
             <option>Selecione o país</option>
             <option>Brasil</option>
             <option>Argentina</option>
@@ -175,7 +180,7 @@ function GerenciarJogadores() {
            </select> <br /> <br />
 
            <label htmlFor="posicao">Posição:</label>
-           <select id="posicao" name="posicao" onChange={ (e) => setPosicao(e.target.value)}>
+           <select id="posicao" name="posicao" value={posicao} onChange={ (e) => setPosicao(e.target.value)}>
             <option>Selecione a posição do jogador</option>
             <option>Goleiro</option>
             <option>Zagueiro</option>
