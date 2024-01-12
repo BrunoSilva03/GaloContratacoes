@@ -20,6 +20,10 @@ function GerenciarJogadores() {
             fileName.innerHTML = enderecoRefinado;
         });
 
+
+       
+        
+
     }, [])
     // useEffect(() => {
     //     let photo = document.getElementById('imgPhoto');
@@ -32,12 +36,33 @@ function GerenciarJogadores() {
     //         file.click();
     //     });
     // }, [])
+
+
+    useEffect(() => {
+        var file = document.getElementById('photofile');
+        var photo = document.getElementById('file-name');
+    
+        file.addEventListener('change', (event) => {
+            let reader  = new FileReader();
+    
+            reader.onload = () => {
+                photo.src = reader.result;
+            }
+    
+            //file.files[0] retorna todos os arquivos na posição 0
+            reader.readAsDataURL(file.files[0]);
+        });
+    }, []);
+
+    
     const [jogadores, setJogadores] = useState([]);
     const [nome, setNome] = useState('');
     const [idade, setIdade] = useState('');
     const [nacionalidade, setNacionalidade] = useState('');
     const [posicao, setPosicao] = useState('');
 
+  
+    
     
     
 
@@ -69,6 +94,7 @@ function GerenciarJogadores() {
             console.log('limpou tudo.')
             console.log('jogadores: ' + jogadores)
             console.log('idade: ' + idade);
+            console.log('imgURL: ' + imgURL);
         })
 
        
