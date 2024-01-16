@@ -104,6 +104,7 @@ function GerenciarJogadores() {
                 setIdade('');
                 setNacionalidade('');
                 setPosicao('');
+                limpaPhoto();
                 console.log('limpou tudo.')
                 console.log('jogadores: ' + jogadores)
                 console.log('idade: ' + idade);
