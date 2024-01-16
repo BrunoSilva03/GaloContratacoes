@@ -63,6 +63,7 @@ function GerenciarJogadores() {
     const [nacionalidade, setNacionalidade] = useState('');
     const [posicao, setPosicao] = useState('');
     const [fotinho, setFotinho] = useState('');
+    var imagemUrl = '';
 
 
 
@@ -86,13 +87,14 @@ function GerenciarJogadores() {
 
     async function handleAdd() {
 
-
+        console.log('imagemUrl dentro do handleAdd: ' + imagemUrl);
+        
         await setDoc(doc(db, "jogadores", jogadores), {
             nome: jogadores,
             idade: idade,
             nacionalidade: nacionalidade,
             posicao: posicao,
-            foto: imgURL.toString(),
+            foto: imagemUrl,
         })
             .then(() => {
                 toast.success("Dados registrados com sucesso no banco!");
@@ -146,19 +148,29 @@ function GerenciarJogadores() {
                 //pro firebase. 
                 //ref é a nossa referência da URL
                 getDownloadURL(uploadTask.snapshot.ref).then(url => {
-                    setImgURL(url.toString());
+                    debugger;
+                    setImgURL(url);
                     console.log('imgURL: ' + imgURL)
                     console.log('URL: ' + url);
+                    imagemUrl = url;
+                    setImgURL(imagemUrl);
+                    console.log('imagemUrl: ' + imagemUrl);
                 })
                 console.log('imgURL: ' + imgURL)
+                console.log('imagemUrl depois de sair: ' + imagemUrl);
                     
             }
         )
     }
 
+    const handleTudo = (event) => {
+        handleUpload(event);
+        handleAdd();
+    }
+
     return (
         <div className={styles.main}>
-            <form onSubmit={handleUpload} className={styles.formulario}>
+            <form onSubmit={handleTudo} className={styles.formulario}>
                 <h1>Cadastrar Jogador</h1>
                 <br />
 
@@ -231,7 +243,7 @@ function GerenciarJogadores() {
 
                 <div className={styles.areaButton}>
                     <button type="reset" className={styles.btnCancelar} onClick={limpaPhoto}>Cancelar</button>
-                    <button type="submit" className={styles.btnCadastrar} onClick={handleAdd}>Cadastrar Jogador</button>
+                    <button type="submit" className={styles.btnCadastrar} >Cadastrar Jogador</button>
                 </div>
                 {/*                 Isso é uma barra de progresso, pesquisar mais depois mais para frente.
             {!imgURL && <progress value={progress} max="100" />} */}
